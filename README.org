@@ -7,8 +7,8 @@ It's just an example of how fast and furious is StumpWM scripting.
 
 ** Installation 
 
-Clone it to the ~~/quicklisp/local-projects/~. 
-Then in your ~~/.stumpwmrc~:
+Clone it to the =~/quicklisp/local-projects/=. 
+Then in your =~/.stumpwmrc=:
 
 #+begin_src lisp
 (add-to-load-path "~/quicklisp/local-projects/stump-pomodoro")
