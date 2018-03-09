@@ -25,4 +25,4 @@ This enables StumpWM commands:
   don't seem to tell you how much time's left anyway...
 - ~pomodoro-reset-series~ erases all completed pomodoro's, clears the dashboard.
 
-You may bind these to a sparse-keymap as you see fit.
+You may bind these to a *sparse-keymap* as you see fit.
