@@ -1,0 +1,28 @@
+* Simple Pomodoro-tracker for StumpWM
+
+I needed one because I'm desperate, short on time 
+and hate ticking sounds and blinking notifications.
+
+It's just an example of how fast and furious is StumpWM scripting.
+
+** Installation 
+
+Clone it to the ~ ~/quicklisp/local-projects/~. 
+Then in your ~ ~/.stumpwmrc~:
+
+#+begin_src lisp
+(add-to-load-path "~/quicklisp/local-projects/stump-pomodoro")
+(load-module "stump-pomodoro")
+#+end_src
+
+This enables StumpWM commands:
+- ~pomodoro-start-timer~ starts pomodoro
+- ~pomodoro-cancel-timer~ cancels running pomodoro
+- ~pomodoro-dash~ prints the series+status dashboard on the upper-right corner of the screen
+- ~pomodoro-status~ prints the status message. Either the pomodoro's running or the type of a break.
+  That's all, folks. Nothing else, not even the time passed/left - you don't need that information, 
+  you need concentration! And, by the way, default SBCL timers that are used
+  don't seem to tell you how much time's left anyway...
+- ~pomodoro-reset-series~ erases all completed pomodoro's, clears the dashboard.
+
+You may bind these to a sparse-keymap as you see fit.
