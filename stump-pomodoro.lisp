@@ -5,10 +5,22 @@
 (defvar *pomodoros-series* 0
   "Counter of finished pomodoros in a series.")
 
+(defun ring-the-bell ()
+  "Play sound file if existing under ~/Music/bell.wav"
+  (let ((soundfile (merge-pathnames (make-pathname
+                                     :directory '(:relative "Music")
+                                     :name "bell"
+                                     :type "wav")
+                                    (user-homedir-pathname))))
+    (if (probe-file  soundfile)
+        (asdf:run-shell-command
+         (concatenate 'string "aplay " (namestring soundfile))))))
+
 (defun finish-timer ()
   (record-finished)
   (sb-ext:unschedule-timer *pomodoro-timer*)
-  (message "+1 (`) Pomodoro Scored!~%~a" (print-status)))
+  (message "+1 (`) Pomodoro Scored!~%~a" (print-status))
+  (ring-the-bell))
 
 (defparameter *pomodoro-timer*
   (sb-ext:make-timer #'finish-timer :name :pomodoro-timer))

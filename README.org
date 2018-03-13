@@ -26,3 +26,6 @@ This enables StumpWM commands:
 - ~pomodoro-reset-series~ erases all completed pomodoro's, clears the dashboard.
 
 You may bind these to a *sparse-keymap* as you see fit.
+
+** Sound Signal
+   Optionally: put sound file "bell.wav" in "~/Music/" to hear sounds at pomodoro's finish.
