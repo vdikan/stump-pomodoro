@@ -77,8 +77,11 @@
   "Standard duration of one pomodoro = 25 * 60 seconds.")
 
 (defcommand pomodoro-start-timer () ()
-  (sb-ext:schedule-timer *pomodoro-timer* *pomodoro-duration*)
-  (message "Pomodoro timer set."))
+  (if (not (sb-ext:timer-scheduled-p *pomodoro-timer*))
+      (progn
+        (sb-ext:schedule-timer *pomodoro-timer* *pomodoro-duration*)
+        (message "Pomodoro timer set."))
+      (pomodoro-status)))
 
 (defcommand pomodoro-cancel-timer () ()
   (sb-ext:unschedule-timer *pomodoro-timer*)
